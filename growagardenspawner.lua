@@ -13,8 +13,8 @@ local isPC = UIS.MouseEnabled
 local uiScale = isPC and 1.15 or 1
 
 local discordBlack = Color3.fromRGB(32, 34, 37)
-local lavender = Color3.fromRGB(180, 140, 235)
-local darkLavender = Color3.fromRGB(160, 120, 215)
+local goldColor = Color3.fromHex("#ebc034")
+local darkGoldColor = Color3.fromHex("#d4a82a")
 local headerColor = Color3.fromRGB(47, 49, 54)
 local textColor = Color3.fromRGB(220, 220, 220)
 
@@ -25,7 +25,7 @@ toggleButton.Position = UDim2.new(0, 10, 0, 10)
 toggleButton.Text = "Toggle UI"
 toggleButton.Font = Enum.Font.SourceSans
 toggleButton.TextSize = 14
-toggleButton.BackgroundColor3 = lavender
+toggleButton.BackgroundColor3 = goldColor
 toggleButton.TextColor3 = Color3.new(0,0,0)
 toggleButton.Parent = screenGui
 Instance.new("UICorner", toggleButton).CornerRadius = UDim.new(0, 6)
@@ -122,19 +122,19 @@ local function makeTab(name, pos)
     b.Font = Enum.Font.SourceSansBold
     b.TextColor3 = textColor
     b.TextSize = 14
-    b.BackgroundColor3 = (name == "PET") and darkLavender or headerColor
+    b.BackgroundColor3 = (name == "PET") and darkGoldColor or headerColor
     b.BorderSizePixel = 0
     b.Parent = tabBackground
     Instance.new("UICorner", b).CornerRadius = UDim.new(0, 0)
     
     b.MouseEnter:Connect(function()
-        if b.BackgroundColor3 ~= darkLavender then
+        if b.BackgroundColor3 ~= darkGoldColor then
             b.BackgroundColor3 = Color3.fromRGB(60, 60, 70)
         end
     end)
     
     b.MouseLeave:Connect(function()
-        if b.BackgroundColor3 ~= darkLavender then
+        if b.BackgroundColor3 ~= darkGoldColor then
             b.BackgroundColor3 = headerColor
         end
     end)
@@ -220,17 +220,17 @@ local function createButton(parent, label, posY)
     btn.Font = Enum.Font.SourceSans
     btn.TextSize = 14
     btn.TextColor3 = Color3.new(0,0,0)
-    btn.BackgroundColor3 = lavender
+    btn.BackgroundColor3 = goldColor
     btn.BorderSizePixel = 0
     btn.Parent = parent
     Instance.new("UICorner", btn).CornerRadius = UDim.new(0, 6)
     
     btn.MouseEnter:Connect(function()
-        btn.BackgroundColor3 = darkLavender
+        btn.BackgroundColor3 = darkGoldColor
     end)
     
     btn.MouseLeave:Connect(function()
-        btn.BackgroundColor3 = lavender
+        btn.BackgroundColor3 = goldColor
     end)
     
     return btn
@@ -372,9 +372,9 @@ local function switch(tab)
     seedTabFrame.Visible = (tab == "seed")
     eggTabFrame.Visible = (tab == "egg")
     
-    petTab.BackgroundColor3 = (tab == "pet") and darkLavender or headerColor
-    seedTab.BackgroundColor3 = (tab == "seed") and darkLavender or headerColor
-    eggTab.BackgroundColor3 = (tab == "egg") and darkLavender or headerColor
+    petTab.BackgroundColor3 = (tab == "pet") and darkGoldColor or headerColor
+    seedTab.BackgroundColor3 = (tab == "seed") and darkGoldColor or headerColor
+    eggTab.BackgroundColor3 = (tab == "egg") and darkGoldColor or headerColor
 end
 
 petTab.MouseButton1Click:Connect(function() switch("pet") end)
